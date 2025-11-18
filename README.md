@@ -1,4 +1,4 @@
-# Dietpi NAS
+# Dietpi NAS (Exential)
 
 
 ## Description:
