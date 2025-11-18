@@ -254,7 +254,7 @@ Do the first login and follow the instructions.
 	DEVICES=('<DEVICE1>' ... '<DEVICEx>')
 
 	apt install git -y
-    git clone https://github.com/Diogomadeira97/Dietpi-NAS
+    git clone https://github.com/Diogomadeira97/Dietpi-NAS_Exential
 	cd Dietpi-NAS/Conf/default
     chmod +x ./*
 	bash default-install.sh ${VARIABLES[@]} . ${USERS[@]} . ${DEVICES[@]}
