@@ -35,20 +35,6 @@ In addition to security, another fundamental objective is to be an environment w
 
 • [Portainer](https://dietpi.com/docs/software/programming/#portainer).
 
-• [Transmission](https://dietpi.com/docs/software/bittorrent/#transmission).
-
-• [Sonarr](https://dietpi.com/docs/software/bittorrent/#sonarr).
-
-• [Radarr](https://dietpi.com/docs/software/bittorrent/#radarr).
-
-• [Prowlarr](https://dietpi.com/docs/software/bittorrent/#prowlarr).
-
-• [Readarr](https://dietpi.com/docs/software/bittorrent/#readarr).
-
-• [Bazarr](https://dietpi.com/docs/software/bittorrent/#bazarr).
-
-• [Jellyfin](https://dietpi.com/docs/software/media/#jellyfin).
-
 • [Kavita](https://dietpi.com/docs/software/media/#kavita).
 
 • [AdGuard Home](https://dietpi.com/docs/software/dns_servers/#adguard-home).
@@ -62,8 +48,6 @@ In addition to security, another fundamental objective is to be an environment w
 • [Nginx Web Server](https://dietpi.com/docs/software/webserver_stack/#nginx).
 
 • [Certbot Let’s Encrypt](https://dietpi.com/docs/software/system_security/#lets-encrypt).
-
-• [Flaresolver](https://github.com/FlareSolverr/FlareSolverr).
 
 • [Immich](https://immich.app/).
 
@@ -400,33 +384,7 @@ Do the first login and follow the instructions.
 	sudo fail2ban-client set <sshd or dropbear> unbanip <ip>
 
 
-#### Transmission:
-
-• Login on web UI with: 
-
-> Username: root
-
-> Password: Global.
-
-• Change the path to /mnt/Cloud/Public/Downloads.
-
-
-#### Arrs:
-
-• Login on Arrs to change users and passwords.
-
-• Add the Transmission to download client (without category).
-
-• Add indexers, apps and FlareSolver on Prowlarr.
-
-• Create language profile on bazar, after add providers to turn on Sonarr and Bazarr.
-
-
-#### Jellyfin and Kavita:
-
-• To force first login on jellyfin use this link "https://jellyfin.<DOMAIN>/web/index.html#/wizardstart".html.
-
-• Create Users and Libraries.
+#### Kavita:
 
 • Do the the first login on kavita and crate Users and Libraries.
 
