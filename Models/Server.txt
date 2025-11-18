@@ -1,0 +1,23 @@
+<DEVICE>:
+
+	• cloudflare token: 
+
+	• Software Global: 
+
+	• root: 
+
+	• admin-prowlarr: 
+	• admin-radarr: 
+	• admin-sonarr: 
+	• admin-readarr: 
+	• admin-bazarr: 
+
+	• admin-jellyfin: 
+
+	• kavita -> <EMAIL: 
+	
+	• Immich -> <EMAIL>: 
+
+
+
+

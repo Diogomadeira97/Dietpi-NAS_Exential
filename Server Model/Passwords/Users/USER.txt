@@ -1,0 +1,15 @@
+#User <USER>.
+
+	• <USER>: 
+
+	• <USER>(smb): 
+
+	• <USER>-jellyfin: 
+	
+	• <USER>-kavita: 
+
+	• Immich -> <EMAIL>: 
+
+	• Passbolt -> <EMAIL>: 
+
+	• Zoho Mail -> <EMAIL>: 

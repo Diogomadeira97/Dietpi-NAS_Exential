@@ -1,0 +1,12 @@
+	<Wi-Fi> admin: 
+	• 
+	
+	<Wi-Fi>: 
+	• 
+	
+	IoT: 
+	• 
+
+	<DEVICE>:
+	• Login: 
+	• Senha: 

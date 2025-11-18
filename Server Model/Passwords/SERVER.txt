@@ -1,0 +1,42 @@
+#Accounts:
+
+	<DOMAIN>:
+	• 
+	• 
+
+	Cloudlfare:	
+	• 
+	• 
+
+	Zoho:
+	• 
+	• 
+
+
+#<SERVER>:
+
+	• cloudflare token: 
+
+	• Software Global: 
+
+	• root: 
+ 	
+	• AdGuard -> admin: Global
+
+	• transmission -> root: Global
+	
+	• admin-portainer: 
+
+	• admin-prowlarr: 
+	• admin-radarr: 
+	• admin-sonarr: 
+	• admin-readarr: 
+	• admin-bazarr: 
+	
+	• admin-jellyfin: 
+
+	• admin-kavita: 
+
+	• Passbolt -> <EMAIL>: 
+	
+	• Immich -> <EMAIL>: 

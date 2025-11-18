@@ -1,0 +1,20 @@
+---
+services:
+  gimp:
+    image: lscr.io/linuxserver/gimp:latest
+    container_name: gimp
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DOCKER_MODS=linuxserver/mods:universal-package-install
+      - INSTALL_PACKAGES=libfuse2|git|gdb
+    volumes:
+      - /mnt/Cloud/Data/Docker/gimp/config:/config
+      - /mnt/Cloud/Public/Midias
+    ports:
+      - 3030:3000
+      - 3005:3001
+    restart: unless-stopped

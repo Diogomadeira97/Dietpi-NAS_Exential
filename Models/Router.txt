@@ -1,0 +1,11 @@
+	Login:
+	• 
+	
+	admin:
+	• 
+	
+	Guests:
+	• 
+	
+	IoT:
+	• 

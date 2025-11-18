@@ -1,0 +1,39 @@
+apt install net-tools -y
+ifconfig
+
+CLOUDFLARE="$(echo '<TOKEN>')"
+VARIABLES=('<SERVER_NAME>' '<ADMIN_NAME>' '<GUEST_NAME>' '<DOMAIN>' '<TP_DOMAIN>' '<IP>' $CLOUDFLARE '<EMAIL>')
+USERS=('<USER1>' ... '<USERx>')
+DEVICES=('<DEVICE1>' ... '<DEVICEx>')
+
+apt install git -y
+git clone https://github.com/Diogomadeira97/Dietpi-NAS
+cd Dietpi-NAS/Conf/default
+chmod +x ./*
+bash default-install.sh ${VARIABLES[@]} . ${USERS[@]} . ${DEVICES[@]}
+unset -v CLODUFLRAE VARIABLES USERS DEVICES
+
+###############################################################################
+
+sudo usermod -a -G <SERVERNAME> <USER>
+sudo nano /etc/samba/smb.conf
+
+########### "valid users = <ADMIN> +<USER>+" ###########
+
+sudo service samba restart
+
+USERPW='<USERPW>'
+DEVICES=('<DEVICE1>' ... '<DEVICEx>')
+cd /mnt/Cloud/Data/Commands
+sudo bash /mnt/Cloud/Data/Commands/default-keys-ssh.sh <DOMAIN> <TPDOMAIN> <USER> $USERPW ${DEVICES[@]}
+unset -v USERPW DEVICES
+
+sudo docker stop portainer
+sudo docker start portainer
+
+cd /mnt/Cloud/Data/Docker/passbolt
+sudo docker compose -f docker-compose-ce.yaml exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake passbolt register_user -u <EMAIL> -f Admin -l User -r admin" -s /bin/sh www-data
+
+cd /mnt/Cloud/Data/Docker/passbolt
+sudo nano docker-compose-ce.yaml
+sudo docker compose -f docker-compose-ce.yaml up -d

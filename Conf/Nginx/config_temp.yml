@@ -1,0 +1,64 @@
+
+subtitle: "Dashboard"
+header: true
+footer: false
+
+logo: "assets/icons/logo.svg"
+
+stylesheet:
+- "assets/custom.css"
+
+columns: "4"
+# Optional theme customization
+theme: default
+
+# Optional theme customization (color overrrides)
+# overrrides can also be done using CSS vars
+colors:
+  light:
+    highlight-primary: "#fff5f2"
+    highlight-secondary: "#fff5f2"
+    highlight-hover: "#bebebe"
+    background: "#12152B"
+    card-background: "rgba(255, 245, 242, 0.8)"
+    text: "#ffffff"
+    text-header: "#fafafa"
+    text-title: "#000000"
+    text-subtitle: "#111111"
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#3273dc"
+    link-hover: "#2e4053"
+    background-image: "../assets/wallpaper-light.jpeg" # Change wallpaper.jpeg to the name of your own custom wallpaper!
+  dark:
+    highlight-primary: "#181C3A"
+    highlight-secondary: "#181C3A"
+    highlight-hover: "#1F2347"
+    background: "#12152B"
+    card-background: "rgba(24, 28, 58, 0.8)"
+    text: "#eaeaea"
+    text-header: "#7C71DD"
+    text-title: "#fafafa"
+    text-subtitle: "#8B8D9C"
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#c1c1c1"
+    link-hover: "#fafafa"
+    background-image: "../assets/wallpaper.jpeg"
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Dietpi-NAS"
+    icon: "fab fa-github"
+    url: "https://github.com/Diogomadeira97/Dietpi-NAS"
+    target: "_blank"
+  - name: "Cloudflare"
+    icon: "fa-brands fa-cloudflare"
+    url: "https://dash.cloudflare.com/login"
+    target: "_blank"
+  - name: "Zoho Mail"
+    icon: "fa-solid fa-envelope"
+    url: "https://mail.zoho.com/"
+    target: "_blank"
+    
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
