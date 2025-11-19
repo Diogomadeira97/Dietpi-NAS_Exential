@@ -47,7 +47,7 @@ rm -rf dietpi-dav_redirect.conf dietpi-nextcloud.conf
 #Go to Immich Docker directory.
 cd /mnt/Cloud/Data/Docker/immich-app
 #Import default file.
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Docker/Immich/docker-compose.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Docker/Immich/docker-compose.yml .
 #Change Data Base password.
 echo -e "UPLOAD_LOCATION=/mnt/Cloud/Data/Docker/immich-app/immich-files\nDB_DATA_LOCATION=/mnt/Cloud/Data/Docker/immich-app/postgres\nIMMICH_VERSION=release\nDB_USERNAME=postgres\nDB_DATABASE_NAME=immich\nDB_PASSWORD=$1" >> .env
 #Add user folders to immich.
@@ -59,21 +59,21 @@ docker compose up -d
 #Go to Vscodium Docker directory.
 cd /mnt/Cloud/Data/Docker/vscodium
 #Import default file.
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Docker/Vscodium/docker-compose.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Docker/Vscodium/docker-compose.yml .
 #Run Vscodium on Docker.
 docker compose up -d
 
 #Go to Gimp Docker directory.
 cd /mnt/Cloud/Data/Docker/gimp
 #Import default file.
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Docker/Gimp/docker-compose.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Docker/Gimp/docker-compose.yml .
 #Run Gimp on Docker.
 docker compose up -d
 
 #Go to Stirling Docker directory.
 cd /mnt/Cloud/Data/Docker/stirling
 #Import default file.
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Docker/Stirling/docker-compose.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Docker/Stirling/docker-compose.yml .
 #Run Stirling on Docker.
 docker compose up -d
 echo -e 'cd /mnt/Cloud/Data/Docker/stirling\nsudo docker compose up -d' >> /mnt/Cloud/Data/Commands/reboot.sh
@@ -103,7 +103,7 @@ sudo docker compose -f docker-compose-ce.yaml exec -ti passbolt su -s /bin/bash 
 #Go to Esphome Docker directory.
 cd /mnt/Cloud/Data/Docker/esphome
 #Import default file.
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Docker/Esphome/docker-compose.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Docker/Esphome/docker-compose.yml .
 echo -e '      - PASSWORD='"$(echo "$8")"'' >> docker-compose.yml
 #Run Esphome on Docker.
 docker compose up -d
