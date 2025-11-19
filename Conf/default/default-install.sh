@@ -53,10 +53,10 @@ done
 #dietpi-backup
 /boot/dietpi/dietpi-backup
 
-#Create directory and move Dietpi-NAS folder.
+#Create directory and move Dietpi-NAS_Exential folder.
 cd ../../../
 mkdir /mnt/Cloud/Data
-mv Dietpi-NAS /mnt/Cloud/Data
+mv Dietpi-NAS_Exential /mnt/Cloud/Data
 
 #Go to Cloud and create default folders.
 cd /mnt/Cloud
@@ -146,7 +146,7 @@ usermod -a -G $BAK "$ADMIN"
 echo -e "$ADMIN ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 #Go to Samba folder.
-cd /mnt/Cloud/Data/Dietpi-NAS/Conf/Samba
+cd /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Samba
 
 #Create default Samba share folders.
 echo -e "        guest account = $GUEST" >> smb.conf
@@ -172,7 +172,7 @@ unset -v hash secret
 systemctl restart dietpi-dashboard
 
 #Go to default folder.
-cd /mnt/Cloud/Data/Dietpi-NAS/Conf/default
+cd /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/default
 
 #Use 'sudo bash /mnt/Cloud/Data/Commands/default.sh' and reconfig folders permissions to default.
 mv default.sh /mnt/Cloud/Data/Commands
@@ -281,10 +281,10 @@ chmod -R 770 Midias-Anuais
 setfacl -R -d -m o::--- Midias-Anuais
 
 #Install tools.
-bash /mnt/Cloud/Data/Dietpi-NAS/Conf/default/default-tools.sh $DBIMMICHPW $DBOFFICEPW $DBPASSBOLTPW $DOMAIN $TPDOMAIN $SERVERNAME $ADMIN $ADMINESPHOME
+bash /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/default/default-tools.sh $DBIMMICHPW $DBOFFICEPW $DBPASSBOLTPW $DOMAIN $TPDOMAIN $SERVERNAME $ADMIN $ADMINESPHOME
 
 #Install Certbot and Homer to set server default configs.
-bash /mnt/Cloud/Data/Dietpi-NAS/Conf/default/default-server.sh $DOMAIN $TPDOMAIN $IP $CLOUDFLARETOKEN $SERVERNAME $EMAIL
+bash /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/default/default-server.sh $DOMAIN $TPDOMAIN $IP $CLOUDFLARETOKEN $SERVERNAME $EMAIL
 
 #Add Users.
 bash /mnt/Cloud/Data/Commands/default-user.sh $SERVERNAME ${USERS[@]}
@@ -299,7 +299,7 @@ bash /mnt/Cloud/Data/Commands/default-keys-ssh.sh $DOMAIN $TPDOMAIN $ADMIN $ADMI
 bash /mnt/Cloud/Data/Commands/default-keys-vpn.sh $ADMIN ${DEVICES[@]}
 
 #Delete the installation folder.
-rm -rf /mnt/Cloud/Data/Dietpi-NAS
+rm -rf /mnt/Cloud/Data/Dietpi-NAS_Exential
 
 #Reboot the system and use SSH key to login with admin.
 reboot
