@@ -7,7 +7,7 @@
 apt install python3-certbot-nginx python3-certbot-dns-cloudflare -y
 
 #Go to Nginx Folder and create the files that are still missing.
-cd /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx
+cd /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx
 
 #Create Nginx config to Domain.
 echo -e "server{\n	listen 80 default_server;\n	listen [::]:80 default_server;\n\n	listen 443 default_server;\n	listen [::]:443 default_server;\n	ssl_reject_handshake on;\n	server_name _;\n	return 444;	\n}\n\n" >> $1
@@ -63,27 +63,27 @@ rm -rf homer
 #Go to Domain folder and set the default files.
 cd $1
 rm logo.png
-cat -n index.html | sed -n '10,$p' >> /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/index.html
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/index.html .
+cat -n index.html | sed -n '10,$p' >> /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/index.html
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/index.html .
 
 #Go to assets folder and set the default files.
 cd assets
 rm config.yml.dist
 rm config-demo.yml.dist
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/config.yml .
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/manifest.json .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/config.yml .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/manifest.json .
 
 #Go to icons folder and set the default files.
 cd icons
 rm ./*
-mv /mnt/Cloud/Data/Dietpi-NAS/Icons/* .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Icons/* .
 chown root:root ./*
 chmod 644 ./*
 
 #Change the default site available.
 cd /etc/nginx/sites-available
 rm default
-mv /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/$1 .
+mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/$1 .
 chmod 544 $1
 
 #Change the default site enabled.
@@ -191,7 +191,7 @@ item "passbolt" "Gerenciador de Senhas."
 #Nextcloud.
 echo -e "server {\n        listen 80;\n        listen [::]:80;\n        server_name nextcloud.$1$2;\n\n        server_tokens off;\n\n        return 301 https://\$server_name\$request_uri;\n}\n\n" >> nextcloud
 echo -e "server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n        server_name nextcloud.$1$2;\n\n        root /var/www/nextcloud;\n\n        ssl_certificate     /etc/letsencrypt/live/$1$2/fullchain.pem;\n        ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;" >> nextcloud
-cat /mnt/Cloud/Data/Dietpi-NAS/Conf/Nginx/nextcloud >> nextcloud
+cat /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/nextcloud >> nextcloud
 mv nextcloud /etc/nginx/sites-available
 sudo chown root:root /etc/nginx/sites-available/nextcloud
 sudo chmod 544 /etc/nginx/sites-available/nextcloud
