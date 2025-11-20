@@ -11,7 +11,7 @@ cd /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx
 
 #Create Nginx config to Domain.
 echo -e "server{\n	listen 80 default_server;\n	listen [::]:80 default_server;\n\n	listen 443 default_server;\n	listen [::]:443 default_server;\n	ssl_reject_handshake on;\n	server_name _;\n	return 444;	\n}\n\n" >> $1
-echo -e "server{\n	listen 80;\n	listen [::]:80;\n	server_name $1$2;\n	return 301 https://\$host\$request_uri;	\n}\n\nserver{\n	listen 443 ssl http2;\n	listen [::]:443 ssl http2;\n	server_name $1$2;\n	root /var/www/$1;\n\n	ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n	ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n}" >> $1
+echo -e "server{\n	listen 80;\n	listen [::]:80;\n	server_name $1$2;\n	return 301 https://\$host\$request_uri;	\n}\n\nserver{\n	listen 443 ssl;\n	listen [::]:443 ssl;\n	http2 on;\n	server_name $1$2;\n	root /var/www/$1;\n\n	ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n	ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n}" >> $1
 
 #Edit index.html of Domain.
 echo -e '\n    <title>'"$5"'</title>' >> index.html
@@ -132,7 +132,7 @@ item "adguard" "Servidor DNS."
 
 #Home Assistant.
 echo -e "server{\n        listen 80;\n        listen [::]:80;\n        server_name home-assistant.$1$2;\n        return 301 https://\$host\$request_uri;\n}\n\n" >> home-assistant
-echo -e "server{\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n        server_name home-assistant.$1$2;\n        ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n        ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n        set \$url $3:8123;\n\n" >> home-assistant
+echo -e "server{\n        listen 443 ssl;\n        listen [::]:443 ssl;\n	http2 on;\n        server_name home-assistant.$1$2;\n        ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n        ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n        set \$url $3:8123;\n\n" >> home-assistant
 echo -e '        location / {\n                proxy_pass http://$url;\n                proxy_set_header Host $host;\n                proxy_set_header X-Real-IP $remote_addr;\n                proxy_set_header Upgrade $http_upgrade;\n                proxy_set_header Connection “upgrade”;        }\n}' >> home-assistant
 mv home-assistant /etc/nginx/sites-available
 sudo chown root:root /etc/nginx/sites-available/home-assistant
@@ -177,7 +177,7 @@ item "gimp" "Editor de Imagens."
 #Passbolt.
 cd /etc/nginx/sites-available
 echo -e "server{\n	listen 80;\n	listen [::]:80;\n	server_name passbolt.$1$2;\n	return 301 https://\$host\$request_uri;	\n}\n\n" >> passbolt
-echo -e "server{\n	listen 443 ssl http2;\n	listen [::]:443 ssl http2;\n	server_name passbolt.$1$2;\n	ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n	ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n" >> passbolt
+echo -e "server{\n	listen 443 ssl;\n	listen [::]:443 ssl;\n	http2 on;\n	server_name passbolt.$1$2;\n	ssl_certificate /etc/letsencrypt/live/$1$2/fullchain.pem;\n	ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;\n" >> passbolt
 echo -e "        location / {\n                proxy_pass http://$1$2:8050/;\n        }\n}" >> passbolt
 chmod 544 passbolt
 cd ../sites-enabled
@@ -190,7 +190,7 @@ item "passbolt" "Gerenciador de Senhas."
 
 #Nextcloud.
 echo -e "server {\n        listen 80;\n        listen [::]:80;\n        server_name nextcloud.$1$2;\n\n        server_tokens off;\n\n        return 301 https://\$server_name\$request_uri;\n}\n\n" >> nextcloud
-echo -e "server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n        server_name nextcloud.$1$2;\n\n        root /var/www/nextcloud;\n\n        ssl_certificate     /etc/letsencrypt/live/$1$2/fullchain.pem;\n        ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;" >> nextcloud
+echo -e "server {\n        listen 443 ssl;\n        listen [::]:443 ssl;\n	http2 on;\n\n        server_name nextcloud.$1$2;\n\n        root /var/www/nextcloud;\n\n        ssl_certificate     /etc/letsencrypt/live/$1$2/fullchain.pem;\n        ssl_certificate_key /etc/letsencrypt/live/$1$2/privkey.pem;" >> nextcloud
 cat /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/nextcloud >> nextcloud
 mv nextcloud /etc/nginx/sites-available
 sudo chown root:root /etc/nginx/sites-available/nextcloud
