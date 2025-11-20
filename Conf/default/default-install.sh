@@ -155,7 +155,7 @@ echo -e "        valid users = $ADMIN" >> smb.conf
 echo -e "\n\n#User $SERVERNAME\n\n[$SERVERNAME]\n        comment = $SERVERNAME\n        path = /mnt/Cloud/$SERVERNAME\n        valid users = @$SERVERNAME" >> smb.conf
 mv smb.conf /etc/samba/smb.conf
 chmod 644 /etc/samba/smb.conf
-service samba restart
+systemctl restart smbd nmbd
 
 #Change Dietpi-Dashboard password and terminal user to admin.
 hash=$(echo -n "$(echo "$DIETPIPW")" | sha512sum | mawk '{print $1}')
@@ -169,7 +169,7 @@ chmod 644 /opt/dietpi-dashboard/config.toml
 unset -v hash secret
 
 #Restart Dietpi-Dashboard.
-systemctl restart dietpi-dashboard
+systemctl restart dietpi-dashboard-frontend dietpi-dashboard-backend
 
 #Go to default folder.
 cd /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/default
