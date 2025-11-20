@@ -117,6 +117,9 @@ adduser --quiet --disabled-password --shell /bin/bash --home /home/"$GUEST" --ge
 echo "$ADMIN:"$(echo "$ADMINPW")"" | chpasswd
 echo "$GUEST:"$(echo "$GUESTPW")"" | chpasswd
 
+#Install Python 3.
+/boot/dietpi/dietpi-software install 130
+
 #Install Fail2Ban, Dietpi-Dashboard, PiVPN(Wireguard), Unbound, AdGuard_Home, Samba_server, Kavita, Nginx, LEMP, Docker, Docker_Compose, Portainer and Home-Assistant.
 /boot/dietpi/dietpi-software install 73 200 117 182 126 96 212 85 79 134 162 185 157
 
@@ -229,7 +232,7 @@ rm crontab
 apt install acl sshpass -y
 
 #Install zip
-apt-get install p7zip-full
+apt-get install p7zip-full -y
 
 #This code is to fix the reboot error message.
 systemctl unmask systemd-logind
