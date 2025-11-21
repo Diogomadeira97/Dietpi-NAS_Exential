@@ -309,9 +309,9 @@ Do the first login and follow the instructions.
 • If the [DDNS](#DDNS) recommendation is being made, chose DDNS and put your domain.
 
 
-#### PiVPN:
+#### Onlyoffice:
 
-• When install Onlyoffice, the database password will be requested. As stated [TIPS](#Tips), the password will be create on /mnt/Cloud/Public/Passwords consecutively, use Samba or Diet-Dashboard to easily access. 
+• When install Onlyoffice, the database password will be requested. As stated [TIPS](#Tips), the password (DBOFFICEPW) will be create on /mnt/Cloud/Public/Passwords consecutively, use Samba or Diet-Dashboard to easily access. 
 
 
 ### Services Configuration:
