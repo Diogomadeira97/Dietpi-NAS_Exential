@@ -8,7 +8,7 @@ logo: "assets/icons/logo.svg"
 stylesheet:
 - "assets/custom.css"
 
-columns: "4"
+columns: "3"
 # Optional theme customization
 theme: default
 
