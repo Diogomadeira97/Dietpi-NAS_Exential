@@ -29,7 +29,7 @@ echo -e '\n        variables_hash_max_size 2048;\n}' >> nginx.conf
 mv nginx.conf /etc/nginx
 
 #Install Samba Client and Nextcloud.
-/boot/dietpi/dietpi-software install 1 114
+#/boot/dietpi/dietpi-software install 1 114
 
 #Change Nextcloud configs.
 sudo apt-get install php-bcmath php-gmp php-imagick libmagickcore-7.q16-10-extra -y
