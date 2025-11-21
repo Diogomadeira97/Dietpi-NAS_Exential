@@ -63,7 +63,7 @@ rm -rf homer
 #Go to Domain folder and set the default files.
 cd $1
 rm logo.png
-cat -n index.html | sed -n '10,$p' >> /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/index.html
+cat index.html | sed -n '10,$p' >> /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/index.html
 mv /mnt/Cloud/Data/Dietpi-NAS_Exential/Conf/Nginx/index.html .
 
 #Go to assets folder and set the default files.
