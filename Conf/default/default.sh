@@ -31,4 +31,4 @@ setfacl -R -d -m o::--- Data
 chown -R $2:$1_Cloud Data/Commands
 
 #Restart Samba_server.
-service samba restart
+systemctl restart smbd nmbd
