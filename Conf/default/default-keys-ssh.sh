@@ -33,6 +33,9 @@ do
     #Move Device SSH Key to /mnt/Cloud/Keys_SSH and easily export with Dietpi-Dashboard or Samba.
     sudo mv "$a($3)" /mnt/Cloud/Public/Keys_SSH
 
+    #Wait 5 seconds to prevent error.
+    sleep 5
+
 done
 
 #Deny password authentication.
